@@ -1,3 +1,14 @@
+#if defined(_WIN32)
+	#if defined(_MSC_VER)
+		#define strncasecmp _strnicmp
+		#define strcasecmp _stricmp
+	#endif
+	#if defined(SQLParser_EXPORTS)
+		#define SQLParser_API __declspec(dllexport)
+	#else
+		#define SQLParser_API __declspec(dllimport)
+	#endif
+#endif
 #ifndef hsql_HEADER_H
 #define hsql_HEADER_H 1
 #define hsql_IN_HEADER 1
@@ -467,7 +478,11 @@ void yyfree ( void * , yyscan_t yyscanner );
  * down here because we want the user's section 1 to have been scanned first.
  * The user has a chance to override it with an option.
  */
-#include <unistd.h>
+#if defined(_WIN32) || defined(_WIN64)
+    #include <io.h>
+#else
+    #include <unistd.h>
+#endif
 #endif
 
 #ifndef YY_EXTRA_TYPE
