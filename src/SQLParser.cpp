@@ -1,4 +1,4 @@
-
+#include <cstdint>
 #include "SQLParser.h"
 #include <stdio.h>
 #include <string>

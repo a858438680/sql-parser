@@ -34,7 +34,7 @@
 /* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
-
+#include <cstdint>
 #ifndef YY_HSQL_BISON_PARSER_H_INCLUDED
 # define YY_HSQL_BISON_PARSER_H_INCLUDED
 /* Debug traces.  */
