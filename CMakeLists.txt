@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 project(hsql VERSION 1.0 LANGUAGES CXX)
 
-add_compile_definitions(-D_CRT_SECURE_NO_WARNINGS)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+endif()
 
 # Options configuration
 option(HSQL_BUILD_TESTS "Build tests" OFF)
